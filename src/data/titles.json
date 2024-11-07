@@ -1,0 +1,44 @@
+{
+  "titles": [
+    {
+      "level": 1,
+      "title": "Apprenti Lecteur"
+    },
+    {
+      "level": 5,
+      "title": "Lecteur Passionné"
+    },
+    {
+      "level": 10,
+      "title": "Érudit des Pages"
+    },
+    {
+      "level": 15,
+      "title": "Sage des Livres"
+    },
+    {
+      "level": 20,
+      "title": "Maître Bibliophile"
+    },
+    {
+      "level": 25,
+      "title": "Grand Archiviste"
+    },
+    {
+      "level": 30,
+      "title": "Gardien du Savoir"
+    },
+    {
+      "level": 35,
+      "title": "Oracle des Lettres"
+    },
+    {
+      "level": 40,
+      "title": "Légende Littéraire"
+    },
+    {
+      "level": 45,
+      "title": "Immortel des Mots"
+    }
+  ]
+} 

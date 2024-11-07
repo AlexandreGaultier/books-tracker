@@ -1,0 +1,172 @@
+.dashboard-container {
+  padding: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-content h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--color-secondary);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* Style pour les livres en cours de lecture */
+.mini-book {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.mini-progress {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Style pour le graphique de complétion */
+.completion-chart {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+/* Style pour la barre de pages */
+.pages-bar {
+  margin-top: 1rem;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pages-segments {
+  height: 100%;
+  display: flex;
+}
+
+.page-segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.level-info h2 {
+  margin: 0;
+  font-size: 2rem;
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.next-level {
+  margin: 0.5rem 0 0;
+  color: var(--color-secondary);
+}
+
+.xp-progress {
+  width: 80px;
+  height: 80px;
+}
+
+.user-info {
+  text-align: left;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 2.5rem;
+  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.title-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: white;
+}
+
+.encouragement {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}
+
+.level-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.next-level {
+  margin: 0.5rem 0;
+  color: var(--color-secondary);
+}

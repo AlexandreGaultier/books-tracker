@@ -1,0 +1,27 @@
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  background: var(--glass-background);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2000;
+  animation: notification 3s ease forwards;
+}
+
+.notification.success {
+  border-left: 4px solid #48BB78;
+}
+
+.notification.error {
+  border-left: 4px solid #F56565;
+}
+
+.notification.info {
+  border-left: 4px solid #4299E1;
+} 

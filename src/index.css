@@ -1,0 +1,81 @@
+:root {
+  --color-primary-dark: #9F7AEA;
+  --color-secondary-dark: #4A5568;
+  --color-accent-dark: #F6AD55;
+  --color-background-dark: #171923;
+  --color-surface-dark: #1A202C;
+  --color-text-dark: #E2E8F0;
+  --color-paper-dark: #2D3748;
+
+  --color-primary-light: #805AD5;
+  --color-secondary-light: #718096;
+  --color-accent-light: #ED8936;
+  --color-background-light: #F7FAFC;
+  --color-surface-light: #FFFFFF;
+  --color-text-light: #2D3748;
+  --color-paper-light: #EDF2F7;
+
+  --color-primary: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary-dark);
+  --color-accent: var(--color-accent-dark);
+  --color-background: var(--color-background-dark);
+  --color-surface: var(--color-surface-dark);
+  --color-text: var(--color-text-dark);
+  --color-paper: var(--color-paper-dark);
+
+  --glass-background: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  background-image: 
+    radial-gradient(circle at 100% 0%, var(--color-primary) 0%, transparent 25%),
+    radial-gradient(circle at 0% 100%, var(--color-accent) 0%, transparent 25%);
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  background-color: var(--color-paper);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem;
+  border: 1px solid var(--color-secondary);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: var(--color-paper);
+  border: none;
+  padding: 0.8em 1.5em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+.glass-card {
+  background: var(--glass-background);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+}
