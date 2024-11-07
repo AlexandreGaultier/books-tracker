@@ -1,6 +1,7 @@
 .book-card {
   position: relative;
-  height: 400px;
+  height: 500px;
+  width: 320px;
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -133,4 +134,12 @@
 }
 
 .book-card:hover .book-info-overlay {
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  margin-top: 2rem;
 } 

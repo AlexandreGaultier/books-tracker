@@ -48,7 +48,7 @@ export default function BookCard({ book, onEdit, onClick }: BookCardProps) {
             onEdit();
           }}
         >
-          Modifier
+          Voir
         </button>
       </div>
     </div>

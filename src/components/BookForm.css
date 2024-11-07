@@ -1,163 +1,111 @@
-.modal-overlay {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
   z-index: 1000;
-  animation: fadeIn 0.3s ease;
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
-  width: 90%;
-  max-width: 600px;
-  max-height: 90vh;
-  overflow-y: auto;
+  background: var(--color-background);
+  border-radius: 16px;
   padding: 2rem;
-  position: relative;
-  animation: slideUp 0.3s ease;
+  width: 90%;
+  max-width: 500px;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
 }
 
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  color: var(--color-text);
-  font-size: 1.5rem;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-}
-
-.close-button:hover {
-  background: var(--glass-background);
-}
-
-.book-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.modal.open .modal-content {
+  transform: translateY(0);
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 label {
-  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.5rem;
   color: var(--color-text);
-  font-weight: 500;
 }
 
-.form-group select,
-.form-group input {
+input, select {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+  padding: 0.75rem;
   border: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  background: var(--glass-background);
   color: var(--color-text);
   font-size: 1rem;
-  transition: all 0.2s ease;
 }
 
-.form-group select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239F7AEA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: 1em;
-  padding-right: 2.5rem;
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
-.form-group select:focus,
-.form-group input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(159, 122, 234, 0.2);
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.form-group select option {
-  background-color: var(--color-background);
-  color: var(--color-text);
+input.error, select.error {
+  border-color: #e53e3e;
 }
 
-.form-group input::placeholder {
-  color: var(--color-secondary);
-}
-
-.form-group input:disabled,
-.form-group select:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.error-message {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
 .form-actions {
   display: flex;
-  gap: 1rem;
   justify-content: flex-end;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.cancel-btn, .submit-btn {
+button {
   padding: 0.75rem 1.5rem;
+  border: none;
   border-radius: 8px;
-  font-weight: 500;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.cancel-btn {
-  background: transparent;
-  border: 1px solid var(--color-secondary);
+button:not(.primary) {
+  background: var(--glass-background);
   color: var(--color-text);
 }
 
-.submit-btn {
+button.primary {
   background: var(--color-primary);
-  border: none;
   color: white;
 }
 
-.cancel-btn:hover {
-  background: var(--glass-background);
-}
-
-.submit-btn:hover {
-  transform: translateY(-2px);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button:hover {
+  opacity: 0.9;
 } 
