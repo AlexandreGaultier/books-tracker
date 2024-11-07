@@ -15,8 +15,8 @@ const books: Book[] = [
     title: "Six of Crows",
     author: "Leigh Bardugo",
     totalPages: 465,
-    progress: 0,
-    status: "to-read",
+    progress: 357,
+    status: "reading",
     coverUrl: "https://m.media-amazon.com/images/I/71vlAhOfuOL._SY342_.jpg"
   },
   {
@@ -26,9 +26,27 @@ const books: Book[] = [
     totalPages: 309,
     progress: 309,
     status: "completed",
-    startDate: new Date('2024-03-01'),
-    completionDate: new Date('2024-03-15'),
+    startDate: new Date('2024-01-01'),
+    completionDate: new Date('2024-01-25'),
     coverUrl: "https://m.media-amazon.com/images/I/81smq5GDvvL._SY425_.jpg"
+  },
+  {
+    id: crypto.randomUUID(),
+    title: "Harry Potter et la Chambre des Secrets",
+    author: "J.K. Rowling",
+    totalPages: 358,
+    progress: 0,
+    status: "to-read",
+    coverUrl: "https://m.media-amazon.com/images/I/81zKAFxMtzL._SY425_.jpg"
+  },
+  {
+    id: crypto.randomUUID(),
+    title: "La harpe des quatres saisons",
+    author: "Fabien Olicard",
+    totalPages: 350,
+    progress: 0,
+    status: "to-read",
+    coverUrl: "https://m.media-amazon.com/images/I/91T6qQJuOzL._SY425_.jpg"
   },
   {
     id: crypto.randomUUID(),
