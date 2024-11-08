@@ -4,6 +4,7 @@ import encouragements from '../data/encouragements.json';
 import titles from '../data/titles.json';
 import 'react-circular-progressbar/dist/styles.css';
 import './Dashboard.css';
+import Book from '../types/Book';
 
 interface DashboardProps {
   books: Book[];

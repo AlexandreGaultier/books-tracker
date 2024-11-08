@@ -10,19 +10,19 @@ interface BookFormProps {
 }
 
 export default function BookForm({ book, isOpen, onClose, onSubmit }: BookFormProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Omit<Book, 'id'>>({
     title: '',
     author: '',
     totalPages: 0,
     progress: 0,
-    status: 'to-read',
+    status: 'to-read' as const,
     coverUrl: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (book) {
-      setFormData(book);
+      setFormData(prev => ({ ...prev, ...book }));
     }
   }, [book]);
 
