@@ -23,8 +23,6 @@ export default function BookDetails({ book, isOpen, onClose, onUpdateProgress }:
   return (
     <div className="book-details-overlay" onClick={onClose}>
       <div className="book-details glass-card" onClick={e => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>×</button>
-        
         <div className="book-details-content">
           <div className="book-cover-large">
             {book.coverUrl ? (
@@ -37,8 +35,20 @@ export default function BookDetails({ book, isOpen, onClose, onUpdateProgress }:
           </div>
 
           <div className="book-info-detailed">
-            <h2>{book.title}</h2>
-            <h3>{book.author}</h3>
+            <div className="header-actions">
+              <span className={`status-badge ${book.status}`}>
+                {book.status === 'reading' ? 'En lecture' :
+                 book.status === 'completed' ? 'Terminé' : 'À lire'}
+              </span>
+              <button className="close-btn" onClick={onClose}>×</button>
+            </div>
+
+            <div className="book-header">
+              <div className="book-title-author">
+                <h2 className="book-title">{book.title},</h2>
+                <p className="book-author">{book.author}</p>
+              </div>
+            </div>
 
             <div className="reading-progress">
               <div className="progress-stats">
@@ -52,6 +62,7 @@ export default function BookDetails({ book, isOpen, onClose, onUpdateProgress }:
               </div>
 
               <div className="progress-update">
+                <label>Mettre à jour votre progression :</label>
                 <input
                   type="range"
                   min="0"
@@ -79,14 +90,6 @@ export default function BookDetails({ book, isOpen, onClose, onUpdateProgress }:
             </div>
 
             <div className="book-metadata">
-              <div className="metadata-item">
-                <span className="label">Statut</span>
-                <span className={`status-badge ${book.status}`}>
-                  {book.status === 'reading' ? 'En lecture' :
-                   book.status === 'completed' ? 'Terminé' : 'À lire'}
-                </span>
-              </div>
-              
               {book.startDate && (
                 <div className="metadata-item">
                   <span className="label">Commencé le</span>
