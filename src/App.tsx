@@ -62,6 +62,30 @@ function App() {
   return (
     <ThemeProvider>
       <div className="app">
+        <div className="falling-page-1" />
+        <div className="falling-page-2" />
+        <div className="falling-page-3" />
+        <div className="falling-page-4" />
+        <div className="falling-page-5" />
+        <div className="falling-page-6" />
+        <div className="falling-page-7" />
+        <div className="falling-page-8" />
+        <div className="falling-page-9" />
+        <div className="falling-page-10" />
+        <div className="falling-page-11" />
+        <div className="falling-page-12" />
+        <div className="falling-page-13" />
+        <div className="falling-page-14" />
+        <div className="falling-page-15" />
+        <div className="falling-page-16" />
+        <div className="falling-page-17" />
+        <div className="falling-page-18" />
+        <div className="falling-page-19" />
+        <div className="falling-page-20" />
+        <div className="falling-page-21" />
+        <div className="falling-page-22" />
+        <div className="falling-page-23" />
+        <div className="falling-page-24" />
         <Navbar onAddClick={() => setIsFormOpen(true)} />
         
         <main className="main-content">

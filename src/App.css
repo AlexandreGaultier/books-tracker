@@ -54,7 +54,93 @@
 
 .app {
   min-height: 100vh;
-  padding-top: 80px; /* Espace pour la navbar */
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Création de multiples pages qui tombent */
+.app::before,
+.app::after,
+.falling-page-1,
+.falling-page-2,
+.falling-page-3,
+.falling-page-4,
+.falling-page-5,
+.falling-page-6,
+.falling-page-7,
+.falling-page-8,
+.falling-page-9,
+.falling-page-10,
+.falling-page-11,
+.falling-page-12,
+.falling-page-13,
+.falling-page-14,
+.falling-page-15,
+.falling-page-16,
+.falling-page-17,
+.falling-page-18,
+.falling-page-19,
+.falling-page-20,
+.falling-page-21,
+.falling-page-22,
+.falling-page-23,
+.falling-page-24 {
+  content: '';
+  position: fixed;
+  width: 20px;
+  height: 25px;
+  background: var(--color-text);
+  opacity: 0.02;
+  z-index: -1;
+  animation: fallDown 20s linear infinite;
+}
+
+/* Positionnement varié des pages */
+.app::before { left: 5%; animation-delay: -2s; }
+.app::after { left: 95%; animation-delay: -7s; }
+.falling-page-1 { left: 10%; animation-delay: -1s; width: 15px; height: 20px; }
+.falling-page-2 { left: 20%; animation-delay: -2s; width: 25px; height: 30px; }
+.falling-page-3 { left: 30%; animation-delay: -21s; width: 18px; height: 22px; }
+.falling-page-4 { left: 40%; animation-delay: -4s; width: 22px; height: 28px; }
+.falling-page-5 { left: 50%; animation-delay: -8s; width: 16px; height: 21px; }
+.falling-page-6 { left: 60%; animation-delay: -6s; width: 20px; height: 26px; }
+.falling-page-7 { left: 70%; animation-delay: -16s; width: 17px; height: 23px; }
+.falling-page-8 { left: 80%; animation-delay: -8s; width: 21px; height: 27px; }
+.falling-page-9 { left: 90%; animation-delay: -9s; width: 19px; height: 24px; }
+.falling-page-10 { left: 15%; animation-delay: -16s; width: 23px; height: 29px; }
+.falling-page-11 { left: 25%; animation-delay: -11s; width: 16px; height: 22px; }
+.falling-page-12 { left: 35%; animation-delay: -12s; width: 24px; height: 28px; }
+.falling-page-13 { left: 45%; animation-delay: -2s; width: 18px; height: 23px; }
+.falling-page-14 { left: 55%; animation-delay: -14s; width: 22px; height: 26px; }
+.falling-page-15 { left: 65%; animation-delay: -15s; width: 20px; height: 25px; }
+.falling-page-16 { left: 75%; animation-delay: -7s; width: 17px; height: 24px; }
+.falling-page-17 { left: 85%; animation-delay: -17s; width: 21px; height: 27px; }
+.falling-page-18 { left: 8%; animation-delay: -18s; width: 19px; height: 25px; }
+.falling-page-19 { left: 18%; animation-delay: -19s; width: 23px; height: 28px; }
+.falling-page-20 { left: 28%; animation-delay: -14s; width: 16px; height: 22px; }
+.falling-page-21 { left: 38%; animation-delay: -31s; width: 24px; height: 29px; }
+.falling-page-22 { left: 48%; animation-delay: -22s; width: 18px; height: 24px; }
+.falling-page-23 { left: 58%; animation-delay: -4s; width: 22px; height: 27px; }
+.falling-page-24 { left: 68%; animation-delay: -24s; width: 20px; height: 26px; }
+
+@keyframes fallDown {
+  0% {
+    top: -30px;
+    transform: rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.02;
+  }
+  90% {
+    opacity: 0.02;
+  }
+  100% {
+    top: 100vh;
+    transform: rotate(360deg) translateX(100px);
+    opacity: 0;
+  }
 }
 
 .main-content {

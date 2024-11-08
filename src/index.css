@@ -36,10 +36,6 @@ body {
   min-height: 100vh;
   background: var(--color-background);
   color: var(--color-text);
-  background-image: 
-    radial-gradient(circle at 100% 0%, var(--color-primary) 0%, transparent 25%),
-    radial-gradient(circle at 0% 100%, var(--color-accent) 0%, transparent 25%);
-  background-attachment: fixed;
 }
 
 .container {
