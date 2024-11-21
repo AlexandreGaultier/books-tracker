@@ -1,4 +1,4 @@
-interface Book {
+export interface Book {
   id: string;
   title: string;
   author: string;
@@ -9,5 +9,3 @@ interface Book {
   completionDate?: Date;
   coverUrl?: string;
 }
-
-export default Book; 

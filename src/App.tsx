@@ -5,13 +5,17 @@ import Dashboard from './components/Dashboard';
 import BookCard from './components/BookCard';
 import BookForm from './components/BookForm';
 import BookDetails from './components/BookDetails';
-import type Book from './types/Book';
+import type { Book } from './types/Book';
 import './App.css';
 import Notification from './components/Notification';
 import initialBooks from './data/books';
+import { storage } from './utils/storage';
 
 function App() {
-  const [books, setBooks] = useState<Book[]>(initialBooks);
+  const [books, setBooks] = useState<Book[]>(() => {
+    const storedBooks = storage.getBooks();
+    return storedBooks.length > 0 ? storedBooks : initialBooks;
+  });
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | undefined>();
   const [detailBook, setDetailBook] = useState<Book | undefined>();
@@ -25,38 +29,50 @@ function App() {
   };
 
   const handleAddBook = (book: Book) => {
-    setBooks(prev => [...prev, book]);
+    setBooks(prev => {
+      const newBooks = [...prev, book];
+      storage.saveBooks(newBooks);
+      return newBooks;
+    });
     setIsFormOpen(false);
     showNotification('Livre ajouté avec succès !', 'success');
   };
 
   const handleEditBook = (book: Book) => {
-    setBooks(prev => prev.map(b => b.id === book.id ? book : b));
+    setBooks(prev => {
+      const newBooks = prev.map(b => b.id === book.id ? book : b);
+      storage.saveBooks(newBooks);
+      return newBooks;
+    });
     setIsFormOpen(false);
     showNotification('Livre modifié avec succès !', 'success');
   };
 
   const handleUpdateProgress = (bookId: string, progress: number) => {
-    setBooks(prev => prev.map(book => {
-      if (book.id === bookId) {
-        const newStatus = progress === book.totalPages ? 'completed' : 'reading';
-        const wasCompleted = newStatus === 'completed' && book.status !== 'completed';
-        
-        if (wasCompleted) {
-          showNotification('Félicitations ! Vous avez terminé ce livre !', 'success');
-        } else {
-          showNotification('Progression mise à jour !', 'success');
-        }
+    setBooks(prev => {
+      const newBooks = prev.map(book => {
+        if (book.id === bookId) {
+          const newStatus = progress === book.totalPages ? 'completed' : 'reading';
+          const wasCompleted = newStatus === 'completed' && book.status !== 'completed';
+          
+          if (wasCompleted) {
+            showNotification('Félicitations ! Vous avez terminé ce livre !', 'success');
+          } else {
+            showNotification('Progression mise à jour !', 'success');
+          }
 
-        return {
-          ...book,
-          progress,
-          status: newStatus,
-          completionDate: newStatus === 'completed' ? new Date() : undefined
-        };
-      }
-      return book;
-    }));
+          return {
+            ...book,
+            progress,
+            status: newStatus,
+            completionDate: newStatus === 'completed' ? new Date() : undefined
+          };
+        }
+        return book;
+      });
+      storage.saveBooks(newBooks);
+      return newBooks;
+    });
   };
 
   return (
